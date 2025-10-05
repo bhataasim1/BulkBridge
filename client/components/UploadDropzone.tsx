@@ -201,7 +201,6 @@ export default function UploadDropzone() {
 
     try {
       const init = await initUpload.mutateAsync(file);
-      console.log("Upload initialized:", init);
 
       const presignData = await getPresignedUrls({
         uploadId: init.uploadId,
@@ -232,7 +231,6 @@ export default function UploadDropzone() {
       });
 
       setStatus("success");
-      console.log("Upload complete!");
     } catch (err) {
       console.error("Upload failed:", err);
       setStatus("error");

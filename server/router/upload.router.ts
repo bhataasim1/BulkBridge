@@ -9,12 +9,9 @@ const uploadController = new UploadController();
 
 uploadRouter.post('/upload', async (req: Request, res: Response) => {
   try {
-    console.log("Request Body: ", req.body);
     const parsedData = uploadSchema.parse(req.body);
 
     const result = await uploadController.uploadFile(parsedData);
-
-    console.log("Upload Result: ", result);
 
     return res.status(200).json({ success: true, ...result });
   } catch (error) {
